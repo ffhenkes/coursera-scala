@@ -1,3 +1,6 @@
+
+// tail recursive factorial
+
 object tail {
 
   def factorial(n:Int):Int = {
