@@ -14,6 +14,12 @@ object rationals {
 }
 
 class Rational(x: Int, y: Int) {
+  require(y != 0, "Denominator must be nonzero value!")
+
+  // constructor
+  def this(x:Int) =
+    this(x, 1)
+
   private def gcd(a: Int,  b: Int): Int =
       if (b == 0) a
       else gcd(b, a % b)
