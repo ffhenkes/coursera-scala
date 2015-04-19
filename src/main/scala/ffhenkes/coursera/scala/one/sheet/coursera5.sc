@@ -25,4 +25,6 @@ object exercise {
 
   sqrt(2)
 
+
+
 }
