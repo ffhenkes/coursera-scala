@@ -10,12 +10,16 @@ object rationals {
   val z = new Rational(5, 7)
   x.sub(y).sub(z)
 
-
+  x.less(y)
 }
 
 class Rational(x: Int, y: Int) {
-  def numerator = x
-  def denominator = y
+  private def gcd(a: Int,  b: Int): Int =
+      if (b == 0) a
+      else gcd(b, a % b)
+
+  val numerator = x / gcd(x, y)
+  val denominator = y / gcd(x, y)
 
   def add(that: Rational) =
     new Rational(
@@ -27,6 +31,13 @@ class Rational(x: Int, y: Int) {
 
   def sub(that: Rational) =
     add(that.neg)
+
+  def less(that:Rational) =
+      numerator * that.denominator < that.numerator * denominator
+
+  def max(that:Rational) =
+    if (this.less(that)) that
+    else this
 
   override def toString = numerator + "/" + denominator
 }
