@@ -58,11 +58,17 @@ class Rational(x: Int, y: Int) {
       numerator  * that.denominator + that.numerator * denominator,
       denominator * that.denominator)
 
-  def neg: Rational =
+//  def neg: Rational =
+//    new Rational(-numerator, denominator)
+//
+//  def - (that: Rational) =
+//    this + that.neg
+
+  def unary_- : Rational =
     new Rational(-numerator, denominator)
 
   def - (that: Rational) =
-    this + that.neg
+    this + -that
 
   def < (that:Rational) =
     numerator * that.denominator < that.numerator * denominator
