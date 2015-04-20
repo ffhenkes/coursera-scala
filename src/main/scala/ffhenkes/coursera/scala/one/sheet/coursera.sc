@@ -26,6 +26,5 @@ object session {
   sqrt(4)
   sqrt(1e60)
   sqrt(1e-6)
-
 }
 
