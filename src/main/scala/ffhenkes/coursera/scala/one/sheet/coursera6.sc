@@ -9,8 +9,11 @@ object rationals {
 
   val z = new Rational(5, 7)
   x.sub(y).sub(z)
+//
+//  x.less(y)
 
-  x.less(y)
+  x < y
+  x max y
 }
 
 class Rational(x: Int, y: Int) {
@@ -38,11 +41,15 @@ class Rational(x: Int, y: Int) {
   def sub(that: Rational) =
     add(that.neg)
 
-  def less(that:Rational) =
-      numerator * that.denominator < that.numerator * denominator
+//  def less(that:Rational) =
+//      numerator * that.denominator < that.numerator * denominator
+
+  // crazy identifiers!! awesome!!
+  def < (that:Rational) =
+    numerator * that.denominator < that.numerator * denominator
 
   def max(that:Rational) =
-    if (this.less(that)) that
+    if (this < (that)) that
     else this
 
   override def toString = numerator + "/" + denominator
