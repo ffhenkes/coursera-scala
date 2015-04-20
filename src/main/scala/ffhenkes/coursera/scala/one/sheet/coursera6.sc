@@ -4,11 +4,18 @@
 object rationals {
   val x = new Rational(1, 2)
 
+//  val y = new Rational(2, 3)
+//  x.add(y)
+//
+//  val z = new Rational(5, 7)
+//  x.sub(y).sub(z)
+
   val y = new Rational(2, 3)
-  x.add(y)
+  x + y
 
   val z = new Rational(5, 7)
-  x.sub(y).sub(z)
+  x - y - z
+
 //
 //  x.less(y)
 
@@ -29,8 +36,24 @@ class Rational(x: Int, y: Int) {
 
   val numerator = x / gcd(x, y)
   val denominator = y / gcd(x, y)
+//
+//  def add(that: Rational) =
+//    new Rational(
+//      numerator  * that.denominator + that.numerator * denominator,
+//      denominator * that.denominator)
+//
+//  def neg: Rational =
+//    new Rational(-numerator, denominator)
+//
+//  def sub(that: Rational) =
+//    add(that.neg)
 
-  def add(that: Rational) =
+//  def less(that:Rational) =
+//      numerator * that.denominator < that.numerator * denominator
+
+  // crazy identifiers!! awesome!!
+
+  def + (that: Rational) =
     new Rational(
       numerator  * that.denominator + that.numerator * denominator,
       denominator * that.denominator)
@@ -38,13 +61,9 @@ class Rational(x: Int, y: Int) {
   def neg: Rational =
     new Rational(-numerator, denominator)
 
-  def sub(that: Rational) =
-    add(that.neg)
+  def - (that: Rational) =
+    this + that.neg
 
-//  def less(that:Rational) =
-//      numerator * that.denominator < that.numerator * denominator
-
-  // crazy identifiers!! awesome!!
   def < (that:Rational) =
     numerator * that.denominator < that.numerator * denominator
 
