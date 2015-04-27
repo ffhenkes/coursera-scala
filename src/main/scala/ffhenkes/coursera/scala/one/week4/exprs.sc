@@ -9,4 +9,6 @@ object exprs {
     case Sum(l, r) => show(l) + " + " + show(r)
   }
 
+  show(Sum(Number(1), Number(2)))
+
 }
